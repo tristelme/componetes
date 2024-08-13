@@ -1,6 +1,7 @@
 export interface Componentes {
-    id: string;
-    nombre: string;
-    imagen: string;
-    alt: string
-}
+        idCard: string; // alfanumérico, numérico, booleano
+        titulo: string;
+        descripcion: string;
+        imagen: string;
+        alt: string;
+    }

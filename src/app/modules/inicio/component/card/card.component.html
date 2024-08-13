@@ -1,33 +1,31 @@
-<div class="container">
-    <div class="row">
-      <h1>Inicio</h1>
-  
-      <div class="col">
-  
-        <div class="contenido" *ngFor="let i of info">
-  
-          <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>{{i.nombre}}</mat-card-title>
-              <mat-card-subtitle>{{i.subtitulo}}</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="{{i.imagen}}">
-            <mat-card-content>
-              <p>
-                {{i.poblacion}} <br>
-                {{i.ubicacion}}
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
-  
-        </div>
-  
-      </div>
-  
-    </div>
-  </div>
+<!--
+    DIRECTIVA es una funcionalidad que se le puede aplicar a una etiqueta
+    desde el HTML.
+
+    Ej.: *ngFor -> REPETITIVA que va a recorrer una colección, iterando 
+    elemento por elemento, y lo va a mostrar sin repetir el código del HTML
+
+    Ej.: *ngIf -> CONDICIONAL que va a mostrar u ocultar un elemento según 
+    una condición
+-->
+
+<div *ngFor="let i of info" class="contenido">
+  <mat-card class="example-card" appearance="outlined">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <!-- INTERPOLACIÓN: Acceder a información del TS desde el HTML -->
+        <mat-card-title>{{i.titulo}}</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{i.imagen}}" alt="{{i.alt}}">
+      <mat-card-content>
+        <p>
+          {{i.descripcion}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>      
+</div>

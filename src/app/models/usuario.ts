@@ -1,8 +1,8 @@
 export interface Usuario {
-    uid: string | any; // atributos tipo any = reciben valores indefinidos
+    id_usuario: string | any;
     nombre: string;
     apellido: string;
+    edad: number;
     email: string;
-    rol: string;
     password: string;
 }
