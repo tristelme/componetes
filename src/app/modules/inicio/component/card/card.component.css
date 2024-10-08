@@ -1,0 +1,41 @@
+.contenido {
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.example-card {
+  width: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.example-card:hover {
+  transform: scale(1.05);
+}
+
+.example-header-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+.phone-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+}
+
+.description {
+  font-size: 14px;
+  color: #555;
+}
+
+.price {
+  font-weight: bold;
+  color: #ff5722; /* Color para el precio */
+}

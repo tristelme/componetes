@@ -1,0 +1,18 @@
+<div *ngFor="let i of info" class="contenido">
+  <mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image" style="background-image: url('{{i.imagen}}');"></div>
+      <mat-card-title>{{i.titulo}}</mat-card-title>
+      <mat-card-subtitle>{{i.marca}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{i.imagen}}" alt="{{i.alt}}" class="phone-image">
+    <mat-card-content>
+      <p class="description">{{i.descripcion}}</p>
+      <p class="price">${{i.precio}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary">LIKE</button>
+      <button mat-button color="accent">SHARE</button>
+    </mat-card-actions>
+  </mat-card>      
+</div>
