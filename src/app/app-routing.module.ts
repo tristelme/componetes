@@ -1,21 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './modules/inicio/pages/inicio/inicio.component';
-import { IniciosesionComponent } from './modules/autenticacion/iniciosesion/iniciosesion.component';
-import { RegistroComponent } from './modules/autenticacion/registro/registro.component';
 
 const routes: Routes = [
   {
     path: '', component: InicioComponent
   },
   {
-    path: 'iniciosesion', component: IniciosesionComponent
-  },
-  { 
-    path: 'registro', component: RegistroComponent 
+    path:"",loadChildren:()=>import('./modules/inicio/inicio.module').then(m=>m.InicioModule)
   },
   {
-    path:"",loadChildren:()=>import('./modules/inicio/inicio.module').then(m=>m.InicioModule)
+    path:"",loadChildren:()=>import('./modules/autenticacion/autenticacion.module').then(m=>m.AutenticacionModule)
   }
 ];
 

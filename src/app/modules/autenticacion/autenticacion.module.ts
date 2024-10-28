@@ -4,10 +4,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Importa FormsModule
 import { AutenticacionRoutingModule } from './autenticacion-routing.module'; // Importa tu módulo de rutas
 import { RegistroComponent } from './registro/registro.component'; // Importa el componente Registro
+import { IniciosesionComponent } from './iniciosesion/iniciosesion.component';
 
 @NgModule({
   declarations: [
-    RegistroComponent, // Declara RegistroComponent
+    RegistroComponent,
+    IniciosesionComponent // Declara RegistroComponent
     // otros componentes...
   ],
   imports: [
@@ -16,5 +18,9 @@ import { RegistroComponent } from './registro/registro.component'; // Importa el
     AutenticacionRoutingModule // Agrega tu módulo de rutas
     // otros módulos...
   ],
+  exports:[
+    RegistroComponent,
+    IniciosesionComponent
+  ]
 })
 export class AutenticacionModule { }
