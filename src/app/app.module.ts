@@ -7,7 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './modules/shared/navbar/navbar.component';
 import { FooterComponent } from './modules/shared/footer/footer.component';
 import { FormsModule } from '@angular/forms';
-
+import { ProductoComponent } from './modules/producto/producto.component';
+import { ContactoComponent } from './modules/contacto/contacto.component';
 // FIREBASE -> importamos HERRAMIENTAS de la Base de Datos
 import { environment } from 'src/environments/environment'; // vincula a la BD con la APP
 import { AngularFireModule } from '@angular/fire/compat'; // trabaja con las colecciones de información
@@ -19,6 +20,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage'; // trab
       AppComponent,
       NavbarComponent,
       FooterComponent,
+      ProductoComponent,
+      ContactoComponent
     ],
     imports: [
      BrowserModule,

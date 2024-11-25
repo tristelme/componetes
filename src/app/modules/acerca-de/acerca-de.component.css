@@ -1,0 +1,27 @@
+/* acerca-de.component.css */
+
+.acerca-de-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-top: 30px;
+    color: #555;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+  }
+  

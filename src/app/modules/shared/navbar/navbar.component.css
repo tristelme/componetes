@@ -1,42 +1,102 @@
-/* navbar.component.css */
-
 /* Estilos del navbar */
 .navbar {
-  background-color: #f8f9fa; /* Color de fondo */
-  padding: 10px 20px; /* Espaciado interno */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
 }
 
-/* Estilos generales de los enlaces de navegación */
-.nav-link {
-  color: #000; /* Color inicial de los enlaces */
-  margin: 0 10px; /* Espaciado entre los enlaces */
+/* Estilo para el logo en el navbar */
+.navbar-logo img {
+  width: 40px; /* Ajusta el tamaño del logo */
+  height: auto;
 }
 
-/* Estilos para la alineación de los elementos en el navbar */
+/* Estilos generales del menú de navegación */
+.navbar-links {
+  list-style: none;
+  display: flex;
+}
+
+.navbar-links li {
+  margin: 0 15px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+/* Cambio de color al pasar el mouse sobre los enlaces del menú de navegación */
+.navbar-links a:hover {
+  color: #ff5733;
+}
+
+/* Estilos para la alineación y espaciado en el navbar */
 .navbar-nav {
-  flex-direction: row; /* Alinear los elementos en fila */
+  flex-direction: row;
+}
+
+/* Animación suave para ambos íconos (usuario y carrito) */
+#user-icon i,
+#cart-icon i {
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #000;
+}
+
+/* Cambio de tamaño y color al hacer hover sobre los íconos */
+#user-icon:hover i,
+#cart-icon:hover i {
+  transform: scale(1.2);
+  color: #007bff;
 }
 
 /* Estilos del menú desplegable */
 .dropdown-menu {
-  min-width: 150px; /* Ancho mínimo para el menú desplegable */
+  min-width: 150px;
 }
 
-/* Animación suave para ambos íconos */
+/* Añadir margen para separación entre los íconos */
+.ms-4 {
+  margin-left: 1.5rem;
+}
+
+/* Estilos para enlaces en la barra de navegación */
+.nav-link {
+  color: #000;
+  margin: 0 10px;
+}
+
+/* Estilos para la animación del navbar */
+.navbar {
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+}
+
+/* Estilos del menú desplegable */
+.dropdown-menu {
+  min-width: 150px;
+}
+
+/* Estilos generales para los enlaces de navegación */
+.nav-link {
+  color: #000;
+  margin: 0 10px;
+}
+
+/* Estilos para la animación de los íconos */
 #user-icon i,
 #cart-icon i {
-  transition: transform 0.3s ease, color 0.3s ease; /* Animación suave */
-  color: #000; /* Color inicial de los íconos */
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #000;
 }
 
-/* Animación al hacer hover sobre el ícono de usuario y carrito */
+/* Cambio de tamaño y color al pasar el mouse sobre los íconos */
 #user-icon:hover i,
 #cart-icon:hover i {
-  transform: scale(1.2); /* Aumenta el tamaño del ícono ligeramente */
-  color: #007bff; /* Cambia el color al hacer hover */
-}
-
-/* Añadir margen para separación entre íconos */
-.ms-4 {
-  margin-left: 1.5rem; /* Ajusta el valor según sea necesario */
+  transform: scale(1.2);
+  color: #007bff;
 }
