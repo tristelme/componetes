@@ -24,4 +24,5 @@ export class RegistroComponent {
     // Procesar el registro (lógica adicional aquí)
     console.log('Formulario enviado', form.value);
   }
+  hide = true;
 }

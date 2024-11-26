@@ -1,24 +1,35 @@
-<!-- src/app/modules/autenticacion/registro/registro.component.html -->
 <div class="container">
-  <form #registroForm="ngForm" (ngSubmit)="onSubmit(registroForm)" class="form-registro">
-    <div class="form-group">
-      <label for="username">Nombre de usuario</label>
-      <input type="text" id="username" class="form-control" [(ngModel)]="username" name="username" required>
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" class="form-control" [(ngModel)]="email" name="email" required>
-    </div>
-
-    <div class="form-group">
-      <label for="password">Contraseña</label>
-      <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password" required>
-      <div *ngIf="passwordError" class="error-message">
-        Contraseña no válida. Debe tener un máximo de 8 caracteres.
-      </div>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Registrar</button>
-  </form>
+  <div class="row">
+      <h1>Registrate</h1>
+      <i class="material-icons" style="font-size: 200px;">person</i>
+      <!-- Nombre de usuario -->
+      <mat-form-field appearance="fill">
+          <mat-label>Ingrese un nombre de usuario:</mat-label>
+          <input matInput placeholder="Ej: Pepito">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <!-- Apellido de usuario -->
+      <mat-form-field appearance="fill">
+          <mat-label>Ingrese su apellido:</mat-label>
+          <input matInput placeholder="Ej: Peréz">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <!-- Email de usuario -->
+      <mat-form-field appearance="fill">
+          <mat-label>Ingrese su email:</mat-label>
+          <input matInput placeholder="Ej: pepitoperez2022@gmail.com">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <!-- Contraseña de usuario -->
+      <mat-form-field>
+          <mat-label>Ingrese su contraseña:</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" #input minlength="6" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-hint align="start">Mínimo:6/{{input.value.length}}</mat-hint>
+      </mat-form-field>
+      <!-- Botón para enviar la información a la Base de Datos-->
+      <button class="boton" mat-raised-button color="primary">Registrar</button>
+  </div>
 </div>
