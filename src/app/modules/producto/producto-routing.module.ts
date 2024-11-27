@@ -8,19 +8,19 @@ import { TelevicionesComponent } from './pages/televiciones/televiciones.compone
 const routes: Routes = [
   // TODAS LAS VISTAS DEL MÓDULO PRODUCTO
   {
-    path:"producto",component:CelularesComponent
+    path:"Celulares",component:CelularesComponent
   },
   {
-    path:"alimentacion",component:ComputadorasComponent
+    path:"Computadoras",component:ComputadorasComponent
   },
   {
-    path:"indumentaria",component:RelojComponent
+    path:"Relojes",component:RelojComponent
   },
   {
-    path:"juguetes",component:TablestComponent
+    path:"Tablets",component:TablestComponent
   },
   {
-    path:"juguetes",component:TelevicionesComponent
+    path:"Televisores",component:TelevicionesComponent
   }
 ];
 

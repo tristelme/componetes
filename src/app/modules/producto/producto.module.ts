@@ -6,6 +6,7 @@ import { ComputadorasComponent } from './pages/computadoras/computadoras.compone
 import { RelojComponent } from './pages/reloj/reloj.component';
 import { TelevicionesComponent } from './pages/televiciones/televiciones.component';
 import { TablestComponent } from './pages/tablest/tablest.component';
+import { CarruselComponent } from './carrusel/carrusel.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { TablestComponent } from './pages/tablest/tablest.component';
     ComputadorasComponent,
     TablestComponent,
     RelojComponent,
-    TelevicionesComponent
+    TelevicionesComponent,
+    CarruselComponent
   ],
   imports: [
     CommonModule,

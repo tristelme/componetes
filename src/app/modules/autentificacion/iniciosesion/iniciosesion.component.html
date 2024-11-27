@@ -1,21 +1,27 @@
 <div class="container">
-    <div class="row">
+    <div class="login-card">
         <h1>Inicia Sesión</h1>
 
-        <i class="material-icons" style="font-size: 200px;">person</i>
+        <i class="material-icons icon" style="font-size: 100px;">person</i>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="input-field">
             <mat-label>Ingrese su email:</mat-label>
             <input [(ngModel)]="usuarios.email" matInput placeholder="Ej: pepitoperez2022@gmail.com" required>
         </mat-form-field>
-        <mat-form-field>
+
+        <mat-form-field class="input-field">
             <mat-label>Ingrese su contraseña:</mat-label>
             <input [(ngModel)]="usuarios.password" matInput [type]="hide ? 'password' : 'text'" #input minlength="6" required>
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
-            <mat-hint align="start">Mínimo:6/{{input.value.length}}</mat-hint>
+            <mat-hint align="start">Mínimo: 6 caracteres/{{input.value.length}}</mat-hint>
         </mat-form-field>
 
         <button class="boton" mat-raised-button color="primary" (click)="iniciarSesion()">Iniciar Sesión</button>
+
+        <div class="signup-link">
+            <p>¿No tienes cuenta? <a routerLink="/registro">Regístrate aquí</a></p>
+        </div>
     </div>
+</div>

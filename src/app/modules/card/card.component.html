@@ -12,8 +12,9 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-button color="primary" class="like-button">Comprar ahora</button>
-        <button mat-button color="accent" class="share-button">Agregar al carrito</button>
-      </mat-card-actions>      
+        <!-- Agregar evento click al botón "Agregar al carrito" -->
+        <button mat-button color="accent" class="share-button" (click)="mostrarAlerta()">Agregar al carrito</button>
+      </mat-card-actions>
     </mat-card>
   </div>
 </div>

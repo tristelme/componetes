@@ -1,10 +1,60 @@
-.container{
+/* Contenedor principal */
+.container {
     display: flex;
-    padding: 10px;
-    text-align: center;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f7fc;
 }
-.boton{
-    width: 120px;
-    margin: auto;
+
+/* Tarjeta de inicio de sesión */
+.login-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Título de la sección */
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Icono de usuario */
+.icon {
+    color: #6366f1;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los campos de entrada */
+.input-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Botón de inicio de sesión */
+.boton {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Enlace para registro */
+.signup-link {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.signup-link a {
+    color: #6366f1;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
 }

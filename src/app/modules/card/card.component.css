@@ -1,26 +1,103 @@
-.container{
+/* Contenedor de las tarjetas */
+.contenido {
     display: flex;
-    padding: 10px;
     justify-content: center;
-}
-
-h1{
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre las tarjetas */
+    margin: 20px;
+  }
+  
+  /* Estilo de cada tarjeta */
+  .card-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .card {
+    width: 250px; /* Ajusta el ancho de la tarjeta */
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden; /* Esconde cualquier contenido fuera de los bordes */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Efecto al pasar el ratón */
+  }
+  
+  /* Estilo de la imagen del producto */
+  .card-image img {
+    width: 100%;
+    height: 180px; /* Ajusta la altura de la imagen */
+    object-fit: contain; /* Asegura que la imagen no se distorsione */
+  }
+  
+  /* Contenido de la tarjeta */
+  .card-content {
+    padding: 10px 15px;
     text-align: center;
-}
-
-.contenido{
-    width: 200px;
-    display: inline-block;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 10px;
-}
-
-p{
-    padding: 5px;
-}
-@media (min-width: 300px) and (max-width: 700px){
-    
-}
-@media (min-width: 700px){
-}
+  }
+  
+  /* Título del producto */
+  .card-title {
+    font-size: 1.1em;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  /* Descripción del producto */
+  .card-description {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 10px;
+  }
+  
+  /* Precio */
+  .card-price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #28a745; /* Color verde para el precio */
+    margin-bottom: 15px;
+  }
+  
+  /* Botones de acción */
+  .card-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 10px;
+  }
+  
+  /* Estilo para los botones */
+  .btn-buy, .btn-cart {
+    width: 48%; /* Cada botón ocupa casi la mitad de la tarjeta */
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+  }
+  
+  /* Botón "Comprar ahora" */
+  .btn-buy {
+    background-color: #007bff; /* Azul para "Comprar ahora" */
+    color: #fff;
+  }
+  
+  /* Botón "Agregar al carrito" */
+  .btn-cart {
+    background-color: #ff9900; /* Naranja para "Agregar al carrito" */
+    color: #fff;
+  }
+  
+  /* Efecto al pasar el mouse sobre los botones */
+  .btn-buy:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-cart:hover {
+    background-color: #e68900;
+  }
+  

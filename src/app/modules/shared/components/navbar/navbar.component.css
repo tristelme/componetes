@@ -1,23 +1,84 @@
+/* Estilo base del navbar */
+mat-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    background-color: #6366f1;
+    color: white;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilo para la imagen del logo */
+.app-logo {
+    height: 30px;  /* Ajusta la altura de la imagen */
+    max-height: 40px; /* Asegura que la imagen no sea mayor de este tamaño */
+    margin-right: 20px; /* Espacio entre la imagen y los botones */
+}
+
+/* Espaciador flexible */
 .example-spacer {
     flex: 1 1 auto;
-}  
-@media (min-width: 300px) and (max-width: 700px){
-    mat-toolbar{
-        background-color: pink;
-    }
-    #menuInicio{
-        display: none;
-    }
-    #menuProducto{
-        display: none;
-    }
 }
-/* ENCAPSULA ESTILOS PARA PANTALLAS MÁS GRANDES -> ej.: computadora, televisor */
-@media (min-width: 700px){
-    mat-toolbar{
-        background-color: rgb(98, 98, 255);
+
+/* Menú de navegación */
+.nav-menu, .menu-items {
+    display: flex;
+    gap: 15px; /* Espaciado entre elementos */
+}
+
+/* Estilo de los botones del menú */
+.nav-item, .menu-items button {
+    color: white;
+    font-weight: 500;
+    position: relative; /* Necesario para animaciones */
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover en los botones del menú */
+.nav-item:hover, .menu-items button:hover {
+    color: #ffeb3b; /* Cambia el color del texto al amarillo */
+    transform: translateY(-5px); /* Eleva ligeramente el botón */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo traslúcido */
+    border-radius: 4px;
+}
+
+/* Subrayado animado en los botones del menú */
+.nav-item::after, .menu-items button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: #ffeb3b; /* Amarillo */
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::after, .menu-items button:hover::after {
+    width: 100%; /* Se expande al pasar el cursor */
+}
+
+/* Efecto hover en el ícono de persona y carrito */
+button[mat-icon-button] {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button[mat-icon-button]:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 700px) {
+    .nav-menu {
+        flex-direction: column; /* Cambia a lista vertical */
+        gap: 10px;
     }
-    #menuSecciones{
-        display: none;
+
+    mat-toolbar {
+        padding: 8px;
+        font-size: 16px;
     }
 }
