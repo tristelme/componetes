@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// IMPORTAMOS INTERFAZ
-import { celulares } from 'src/app/models/celulares';
 import Swal from 'sweetalert2';
+import { celulares } from 'src/app/models/celulares';
 
 @Component({
   selector: 'app-card',
@@ -9,68 +8,45 @@ import Swal from 'sweetalert2';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  // PROPIEDAD PÚBLICA (TIPO: ARRAY)
-  public info: celulares[];
-
-  // Constructor
-  constructor() {
-    this.info = [
-      {
-        id: "", 
-        titulo: "999", 
-        descripcion: "", 
-        imagen: "/assets/iphone15.png", 
-        alt: "", 
-        marca: "",
-      },
-      {
-        id: "", 
-        titulo: "", 
-        descripcion: "", 
-        imagen: "", 
-        alt: "", 
-        marca: "",
-      },
-      {
-        id: "", 
-        titulo: "", 
-        descripcion: "", 
-        imagen: "", 
-        alt: "", 
-        marca: "",
-      },
-      {
-        id: "", 
-        titulo: "", 
-        descripcion: "", 
-        imagen: "/assets/iphone 15.png", 
-        alt: "", 
-        marca: "",
-      },
-      {
-        id: "", 
-        titulo: "", 
-        descripcion: "", 
-        imagen: "/assets/iphone.png", 
-        alt: "", 
-        marca: "",
-      },
-      {
-        id: "", 
-        titulo: "", 
-        descripcion: "", 
-        imagen: "", 
-        alt: "", 
-        marca: "",
-      },
+  public info: celulares[] = [
+    {
+      id: "1",
+      titulo: "Apple iPhone 15 (256 GB) - Verde",
+      descripcion: "Apple iPhone 15 (256 GB) - Verde",
+      imagen: "assets/iphone 15.png",
+      alt: "Apple iPhone 15 (256 GB) - Verde",
+      marca: "Apple",
+    },
+    {
+      id: "2",
+      titulo: "Apple iPhone 11 (64 GB) - Blanco",
+      descripcion: "Apple iPhone 11 (64 GB) - Blanco",
+      imagen: "/assets/iphone11.png",
+      alt: "Apple iPhone 11 (64 GB) - Blanco",
+      marca: "Samsung",
+    },
+    {
+      id: "2",
+      titulo: "Apple iPhone 12 (64 GB)",
+      descripcion: "Apple iPhone 12 (64 GB) - verde",
+      imagen: "/assets/iphone12.png",
+      alt: "Apple iPhone 12 (64 GB)",
+      marca: "Samsung",
+    },
+    {
+      id: "2",
+      titulo: "Apple iPhone 15 (256 GB) - Negro",
+      descripcion: "Apple iPhone 15 (256 GB) - Negro",
+      imagen: "/assets/iphone15black.png",
+      alt: "Samsung Galaxy S24",
+      marca: "Samsung",
+    },
     ];
-  }
 
-  ngOnInit(): void {
-    // Aquí puedes realizar inicializaciones adicionales si es necesario
-  }
+  constructor() {}
 
-  // Función para mostrar la alerta cuando se haga clic en "Agregar al carrito"
+  ngOnInit(): void {}
+
   mostrarAlerta() {
     Swal.fire({
       icon: 'info',

@@ -9,7 +9,7 @@ export class CarruselComponent {
   // Arreglo con las rutas de las imágenes
   images = [
     { src: 'assets/mouse.png' },
-    { src: 'assets/images/imagen2.jpg' },
+    { src: 'assets/monitor.png' },
     { src: 'assets/images/imagen3.jpg' },
     { src: 'assets/images/imagen4.jpg' }
   ];

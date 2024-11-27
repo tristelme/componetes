@@ -6,25 +6,13 @@ import { Usuario } from 'src/app/models/usuario';
   providedIn: 'root'
 })
 export class FirestoreService {
-  /*
-  Definimos de forma privada la colección de usuarios para que no sea accesible en toda 
-  la aplicación. Lo definimos como una colección de Firestore que respete la estructura 
-  de nuestra interfaz 'Usuario'
-  */
+
   private usuariosCollection: AngularFirestoreCollection<Usuario>
   constructor(private database: AngularFirestore) {
-    /*
-    usuariosCollection va a definir la nueva colección 'usuarios' que estará en nuestra 
-    base de datos 
-    */
     this.usuariosCollection = this.database.collection<Usuario>('usuarios');
   }
   agregarUsuario(usuario: Usuario, id: string){
-    /*
-      Creamos una nueva PROMESA junto los métodos:
-      RESOLVE: promesa resuelta -> funciona correctamente
-      REJECT: promesa rechazada -> ocurrió una falla
-    */
+
     return new Promise(async (resolve, reject) => {
       // Bloque TRY encapsula la lógica RESUELTA
       try {
