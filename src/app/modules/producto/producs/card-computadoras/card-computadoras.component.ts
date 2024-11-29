@@ -33,7 +33,7 @@ mostrarProductoAlimentacion(){
   // Iteramos colección de productos con un 'forEach'
   this.coleccionProductos.forEach(producto => {
     // Si es de tipo "alimentación" -> condicional
-    if(producto.categoria === "alimentacion"){
+    if(producto.categoria === "Computadoras"){
       // Lo sube/ guarda en la colección de productos de tipo "alimentación"
       this.coleccionAlimentacion.push(producto);
     }
