@@ -7,7 +7,6 @@ import { RelojComponent } from './pages/reloj/reloj.component';
 import { TelevicionesComponent } from './pages/televiciones/televiciones.component';
 import { TablestComponent } from './pages/tablest/tablest.component';
 import { CarruselComponent } from './producs/carrusel/carrusel.component';
-import { CardComponent } from '../card/card.component';
 import { CardCelularesComponent } from './producs/card-celulares/card-celulares.component';
 import { CardComputadorasComponent } from './producs/card-computadoras/card-computadoras.component';
 @NgModule({
@@ -18,7 +17,6 @@ import { CardComputadorasComponent } from './producs/card-computadoras/card-comp
     RelojComponent,
     TelevicionesComponent,
     CarruselComponent,
-    CardComponent,
     CardCelularesComponent,
     CardComputadorasComponent
   ],
@@ -33,7 +31,6 @@ import { CardComputadorasComponent } from './producs/card-computadoras/card-comp
     RelojComponent,
     TelevicionesComponent,
     CarruselComponent,
-    CardComponent
   ]
 
 })
