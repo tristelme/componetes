@@ -1,71 +1,81 @@
+// Importa las dependencias necesarias de Angular y Firebase
 import { Injectable } from '@angular/core';
-import { Producto } from 'src/app/models/producto';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { map } from 'rxjs';
+import { Producto } from 'src/app/models/producto'; // Importa el modelo Producto
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore'; // Importa servicios de Firestore
+import { map } from 'rxjs'; // Importa el operador 'map' de RxJS
 
+// El decorador @Injectable indica que este servicio puede ser inyectado en otros componentes o servicios
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // El servicio estará disponible a nivel de toda la aplicación
 })
 export class CrudService {
-  // Definimos colección para los productos de la web
-  private productosCollection: AngularFirestoreCollection<Producto>
+  
+  // Define una variable privada que almacenará la colección de productos en Firestore
+  private productosCollection: AngularFirestoreCollection<Producto>;
 
+  // El constructor inyecta el servicio AngularFirestore, que se usa para interactuar con la base de datos
   constructor(private database: AngularFirestore) {
+    // Inicializa la colección de productos dentro de Firestore (nombre de la colección es 'producto')
     this.productosCollection = database.collection('producto');
   }
 
-  // CREAR productos
-  crearProducto(producto: Producto){
-    return new Promise(async(resolve, reject) => {
-      try{
-        // Creamos número identificativo para el producto en la base de datos
+  // Método para crear un nuevo producto en la base de datos
+  crearProducto(producto: Producto) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        // Crea un ID único para el producto utilizando el método de Firestore
         const idProducto = this.database.createId();
 
-        // Asignamos ID creado al atributo idProducto de la interfaz Producto
+        // Asigna el ID generado al atributo idProducto del objeto producto
         producto.idProducto = idProducto;
 
+        // Guarda el producto en la colección 'producto' usando el ID generado
         const resultado = await this.productosCollection.doc(idProducto).set(producto);
 
+        // Devuelve el resultado del proceso (confirmación de éxito)
         resolve(resultado);
-      } catch (error){
+      } catch (error) {
+        // En caso de error, lo rechaza y devuelve el error
         reject(error);
       }
-    })
+    });
   }
 
-  // OBTENER productos
-  obtenerProducto(){
+  // Método para obtener todos los productos de la base de datos
+  obtenerProducto() {
     /*
-      snapshotChanges => toma captura del estado de los datos
-      pipe => tuberías que retornan un nuevo arreglo
-      map => "mapea" o recorre esa nueva información
-      a => resguarda la nueva información y la envía como un documento 
+      snapshotChanges: obtiene una instantánea del estado de los datos en Firestore.
+      pipe: permite encadenar operaciones reactivas.
+      map: mapea o transforma los datos recibidos, extrayendo la información de los documentos de la colección.
+      action: contiene las acciones que se pueden realizar sobre los documentos de la colección.
     */
-   
-    return this.productosCollection.snapshotChanges().pipe(map(action => action.map(a => a.payload.doc.data())))
+    return this.productosCollection.snapshotChanges().pipe(
+      map(action => action.map(a => a.payload.doc.data())) // Mapea los datos extraídos y los devuelve como un array
+    );
   }
 
-  // EDITAR productos
-  modificarProducto(idProducto: string, nuevaData: Producto){
+  // Método para modificar un producto existente
+  modificarProducto(idProducto: string, nuevaData: Producto) {
     /*
-      Accedemos a la colección "productos" de la Base de Datos, buscamos el ID del 
-      producto seleccionado y lo actualizamos con el método "update", enviando la 
-      nueva información
+      Accede al documento específico de la colección 'producto' usando el ID proporcionado
+      y lo actualiza con los nuevos datos pasados a través del parámetro 'nuevaData'.
     */
     return this.database.collection('producto').doc(idProducto).update(nuevaData);
   }
 
-  // ELIMINAR productos
-  eliminarProducto(idProducto: string){
+  // Método para eliminar un producto por su ID
+  eliminarProducto(idProducto: string) {
     return new Promise((resolve, reject) => {
-      try{
+      try {
+        // Elimina el producto especificado en la colección usando su ID
         const respuesta = this.productosCollection.doc(idProducto).delete();
 
-        resolve (respuesta);
+        // Devuelve la respuesta, confirmando la eliminación
+        resolve(respuesta);
+      } catch (error) {
+        // En caso de error, lo rechaza y devuelve el error
+        reject(error);
       }
-      catch(error){
-        reject (error);
-      }
-    })
+    });
   }
 }

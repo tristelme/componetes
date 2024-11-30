@@ -1,40 +1,45 @@
 <div class="container">
+    <!-- Contenedor de la tarjeta de registro -->
     <div class="register-card">
-        <h1>Regístrate</h1>
+        <h1>Regístrate</h1> <!-- Título de la sección de registro -->
 
+        <!-- Icono de usuario -->
         <i class="material-icons icon">person</i>
-        
-        <!-- Nombre de usuario -->
+
+        <!-- Campo para el nombre de usuario -->
         <mat-form-field appearance="fill" class="input-field">
-            <mat-label>Ingrese un nombre de usuario:</mat-label>
-            <input [(ngModel)]="usuarios.nombre" matInput placeholder="Ej: Pepito" required>
+            <mat-label>Ingrese un nombre de usuario:</mat-label> <!-- Etiqueta para el campo de nombre -->
+            <input [(ngModel)]="usuarios.nombre" matInput placeholder="Ej: Pepito" required> <!-- Campo de entrada con enlace bidireccional al modelo de datos -->
         </mat-form-field>
 
-        <!-- Apellido de usuario -->
+        <!-- Campo para el apellido de usuario -->
         <mat-form-field appearance="fill" class="input-field">
-            <mat-label>Ingrese su apellido:</mat-label>
-            <input [(ngModel)]="usuarios.apellido" matInput placeholder="Ej: Pérez" required>
+            <mat-label>Ingrese su apellido:</mat-label> <!-- Etiqueta para el campo de apellido -->
+            <input [(ngModel)]="usuarios.apellido" matInput placeholder="Ej: Pérez" required> <!-- Campo de entrada con enlace bidireccional al modelo de datos -->
         </mat-form-field>
 
-        <!-- Email de usuario -->
+        <!-- Campo para el email de usuario -->
         <mat-form-field appearance="fill" class="input-field">
-            <mat-label>Ingrese su email:</mat-label>
-            <input [(ngModel)]="usuarios.email" matInput placeholder="Ej: pepitoperez2022@gmail.com" required>
+            <mat-label>Ingrese su email:</mat-label> <!-- Etiqueta para el campo de email -->
+            <input [(ngModel)]="usuarios.email" matInput placeholder="Ej: pepitoperez2022@gmail.com" required> <!-- Campo de entrada con enlace bidireccional al modelo de datos -->
         </mat-form-field>
 
-        <!-- Contraseña de usuario -->
+        <!-- Campo para la contraseña del usuario -->
         <mat-form-field class="input-field">
-            <mat-label>Ingrese su contraseña:</mat-label>
-            <input [(ngModel)]="usuarios.password" matInput [type]="hide ? 'password' : 'text'" #input minlength="6" required>
+            <mat-label>Ingrese su contraseña:</mat-label> <!-- Etiqueta para el campo de contraseña -->
+            <input [(ngModel)]="usuarios.password" matInput [type]="hide ? 'password' : 'text'" #input minlength="6" required> <!-- Campo de entrada para la contraseña con la opción de mostrar u ocultar -->
+            <!-- Botón para alternar la visibilidad de la contraseña -->
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> <!-- Icono que cambia dependiendo si la contraseña es visible u oculta -->
             </button>
+            <!-- Indicador del mínimo de caracteres de la contraseña -->
             <mat-hint align="start">Mínimo: 6 caracteres/{{input.value.length}}</mat-hint>
         </mat-form-field>
 
-        <!-- Botón para ENVIAR la información -->
+        <!-- Botón de registro -->
         <button class="boton" mat-raised-button color="primary" (click)="registrar()">Registrar</button>
 
+        <!-- Enlace para iniciar sesión si ya se tiene cuenta -->
         <div class="login-link">
             <p>¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión aquí</a></p>
         </div>

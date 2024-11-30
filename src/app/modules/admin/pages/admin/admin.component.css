@@ -1,6 +1,7 @@
-.container{
-    display: flex;
-    padding: 10px;
-    text-align: center;
-    justify-content: center;
+/* Establece un contenedor con diseño flexible */
+.container {
+    display: flex; /* Aplica un modelo de caja flexible al contenedor, lo que permite una disposición flexible de los elementos hijos */
+    padding: 10px; /* Agrega un espaciado de 10 píxeles en todos los lados del contenedor */
+    text-align: center; /* Centra el contenido de texto horizontalmente dentro de los elementos del contenedor */
+    justify-content: center; /* Centra los elementos hijos a lo largo del eje principal (horizontalmente en un contenedor flex) */
 }

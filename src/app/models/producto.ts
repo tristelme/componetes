@@ -22,5 +22,6 @@ export interface Producto {
     
     // La propiedad 'alt' es de tipo 'string', y se espera que contenga una descripción alternativa de la imagen (usada para accesibilidad o si la imagen no se carga correctamente).
     alt: string;
+
   }
   

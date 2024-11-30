@@ -1,57 +1,61 @@
 import { Injectable } from '@angular/core';
-// Servicio en la nube de autentificación de Firebase
+// Importamos el servicio AngularFireAuth para gestionar la autenticación con Firebase.
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-// Accedemos directamente al servicio Firestore
+// Importamos el servicio AngularFirestore para interactuar con la base de datos Firestore de Firebase.
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'  // Indicamos que este servicio estará disponible de manera global en la aplicación.
 })
 export class AuthService {
-  // Referenciar Auth de Firebase en el servicio y ServicioFirestore
+  // Inyectamos los servicios de autenticación de Firebase (AngularFireAuth) y Firestore (AngularFirestore).
   constructor(
-    private auth: AngularFireAuth, 
-    private servicioFirestore: AngularFirestore
+    private auth: AngularFireAuth,  // Servicio de autenticación de Firebase.
+    private servicioFirestore: AngularFirestore  // Servicio de Firestore de Firebase.
   ) { }
 
-  // FUNCIÓN PARA REGISTRO
+  // Función para registrar un nuevo usuario con su email y contraseña.
   registrar(email: string, password: string){
-    // retorna el valor que es creado con el método "createEmail..."
+    // Utilizamos el método de Firebase para crear un usuario con el email y la contraseña proporcionados.
     return this.auth.createUserWithEmailAndPassword(email, password);
   }
 
-  // FUNCIÓN PARA INICIO DE SESIÓN
+  // Función para iniciar sesión con un usuario existente utilizando su email y contraseña.
   iniciarSesion(email: string, password: string){
-    // validar la información del usuario -> saber si existe en la colección
+    // Llamamos al método de Firebase para iniciar sesión con el email y la contraseña proporcionados.
     return this.auth.signInWithEmailAndPassword(email, password);
   }
 
-  // FUNCIÓN PARA CERRAR SESIÓN
+  // Función para cerrar sesión del usuario actualmente autenticado.
   cerrarSesion(){
-    // devuelve una promesa vacía -> quita token
+    // Llamamos al método de Firebase para cerrar sesión y quitar el token de autenticación.
     return this.auth.signOut();
   }
 
-  // FUNCIÓN PARA TOMAR EL UID
+  // Función para obtener el UID (ID único) del usuario actualmente autenticado.
   async obtenerUid(){
-    // Nos va a generar una promesa y la constante la va a capturar
+    // Obtenemos el usuario actual utilizando el método 'currentUser' de Firebase Auth.
     const user = await this.auth.currentUser;
 
     /*
-      Si el usuario no respeta la estructura de la interfaz /
-      Si tuvo problemas para el registro -> ej.: mal internet
+      Si no hay un usuario autenticado (el valor de user es null), retornamos null.
+      Esto puede suceder si el usuario no está logueado o si hubo problemas con la conexión durante el registro o inicio de sesión.
     */
     if(user == null){
       return null;
     } else {
+      // Si el usuario existe, retornamos su UID (identificador único).
       return user.uid;
     }
   }
+
+  // Función para obtener la información de un usuario desde Firestore utilizando su email.
   obtenerUsuario(email: string){
     /**
-     * Retornamos del servicioFirestore la colección de 'usuarios', buscamos una referencia en los email registrados
-     * y los comparamos con los que ingrese el usuario al iniciar sesión, y lo obtiene con el '.get()'
-     * Lo vuelve una promesa => da un resultado RESUELTO o RECHAZADO
+     * Usamos el servicio Firestore para obtener la colección 'usuarios' y filtramos por el email que nos pase el parámetro.
+     * La función 'where' compara el valor del email almacenado en la base de datos con el email proporcionado.
+     * Finalmente, llamamos al método 'get()' para obtener los resultados de la búsqueda.
+     * Esto devuelve una promesa que se resuelve con el resultado o se rechaza si ocurre algún error.
      */
     return this.servicioFirestore.collection('usuarios', ref => ref.where('email', '==', email)).get().toPromise();
   }

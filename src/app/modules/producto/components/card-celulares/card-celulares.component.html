@@ -1,34 +1,54 @@
 <!-- Card para mostrar TODOS los productos que el admin ingrese a la base de datos -->
 <div class="contenido" *ngFor="let producto of coleccionAlimentacion">
+    <!-- Este div crea una tarjeta para cada producto dentro de la colección de productos -->
     <div class="card" style="width: 18rem;">
+        <!-- Muestra una imagen del producto. La URL de la imagen y el texto alternativo se pasan desde el objeto producto -->
         <img src="{{producto.imagen}}" class="card-img-top" alt="{{producto.alt}}">
+        
         <div class="card-body">
+            <!-- Muestra el nombre del producto dentro de un título -->
             <h5 class="card-title">{{producto.imagen}}</h5>
+            <!-- Muestra el precio del producto -->
             <p class="card-text">{{producto.precio}}</p>
+            
+            <!-- Botón para mostrar más información sobre el producto en un modal -->
             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" 
             data-bs-target="#verMas" (click)="mostrarVer(producto)">Ver más</button>
         </div>
     </div>
 </div>
+
 <!-- Modal para ver más información -->
+<!-- Este modal se muestra cuando 'modalVisible' es verdadero -->
 <div class="modal fade" *ngIf="modalVisible" id="verMas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">{{productoSeleccionado.nombre}}</h1>
+                <!-- El título del modal muestra el nombre del producto seleccionado -->
+                <h1 class="modal-title" id="exampleModalLabel">{{productoSeleccionado.nombre}}</h1>
+                <!-- Botón para cerrar el modal -->
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
             <div class="modal-body">
+                <!-- Muestra la imagen del producto seleccionado dentro del modal -->
                 <img src="{{productoSeleccionado.imagen}}" alt="{{productoSeleccionado.alt}}">
+                
+                <!-- Muestra la descripción del producto seleccionado -->
                 <div class="mb-3">
                     {{productoSeleccionado.descripcion}}
                 </div>
+
+                <!-- Muestra el precio del producto seleccionado -->
                 <div class="mb-3">
                     {{productoSeleccionado.precio}}
                 </div>
             </div>
+
             <div class="modal-footer">
+                <!-- Botón para agregar el producto al carrito (aún sin funcionalidad asociada) -->
                 <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Agregar al carrito</button>
+                <!-- Botón para cerrar el modal -->
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>

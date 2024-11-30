@@ -1,1 +1,16 @@
-<p>carrusel works!</p>
+<div class="carrusel-container">
+    <!-- Botón para ir al slide anterior -->
+    <button class="prev-btn" (click)="prevSlide()">&#10094;</button>  <!-- El símbolo &#10094; representa una flecha hacia la izquierda -->
+    
+    <!-- Contenedor del carrusel -->
+    <div class="carrusel" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+        <!-- Cada item del carrusel -->
+        <div class="carrusel-item" *ngFor="let item of items">
+            <!-- Cada imagen dentro del carrusel -->
+            <img [src]="item" alt="Imagen de carrusel">  <!-- El atributo [src] vincula cada imagen a la fuente del item -->
+        </div>
+    </div>
+
+    <!-- Botón para ir al siguiente slide -->
+    <button class="next-btn" (click)="nextSlide()">&#10095;</button>  <!-- El símbolo &#10095; representa una flecha hacia la derecha -->
+</div>

@@ -1,60 +1,62 @@
 /* Contenedor principal */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f7fc;
+    display: flex; /* Usamos Flexbox para la distribución */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    height: 100vh; /* Establece la altura al 100% de la altura de la ventana */
+    background-color: #f4f7fc; /* Color de fondo suave, tipo gris azulado */
 }
 
 /* Tarjeta de inicio de sesión */
 .login-card {
-    background-color: white;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
+    background-color: white; /* Fondo blanco para la tarjeta de login */
+    padding: 40px; /* Espaciado interno de 40px alrededor del contenido */
+    border-radius: 8px; /* Bordes redondeados de 8px */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor de la tarjeta */
+    width: 100%; /* La tarjeta ocupa el 100% del ancho disponible */
+    max-width: 400px; /* Establece un ancho máximo de 400px */
+    text-align: center; /* Centra el texto dentro de la tarjeta */
 }
 
 /* Título de la sección */
 h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 2em; /* Tamaño de fuente grande */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    color: #333; /* Color de texto gris oscuro */
 }
 
 /* Icono de usuario */
 .icon {
-    color: #6366f1;
-    margin-bottom: 20px;
+    color: #6366f1; /* Color azul para el icono */
+    margin-bottom: 20px; /* Espacio debajo del icono */
 }
 
 /* Estilo para los campos de entrada */
 .input-field {
-    width: 100%;
-    margin-bottom: 20px;
+    width: 100%; /* Los campos de entrada ocupan todo el ancho disponible */
+    margin-bottom: 20px; /* Espacio debajo de cada campo */
 }
 
 /* Botón de inicio de sesión */
 .boton {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
+    width: 100%; /* El botón ocupa todo el ancho disponible */
+    padding: 10px; /* Espaciado interno de 10px */
+    font-size: 16px; /* Tamaño de fuente del botón */
 }
 
 /* Enlace para registro */
 .signup-link {
-    margin-top: 20px;
-    font-size: 14px;
+    margin-top: 20px; /* Espacio superior de 20px */
+    font-size: 14px; /* Tamaño de fuente pequeño para el enlace */
 }
 
+/* Estilo del enlace dentro de signup-link */
 .signup-link a {
-    color: #6366f1;
-    text-decoration: none;
+    color: #6366f1; /* Color azul para el enlace */
+    text-decoration: none; /* Elimina el subrayado por defecto */
 }
 
+/* Efecto de hover para el enlace */
 .signup-link a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Subraya el enlace cuando se pasa el cursor sobre él */
 }

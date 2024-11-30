@@ -1,38 +1,45 @@
 <mat-toolbar>
-   <!-- Imagen como logo de la app -->
-   <img src="../../../../../assets/apple.png" alt="Logo" class="app-logo">
+  <!-- Imagen como logo de la app -->
+  <img src="../../../../../assets/apple.png" alt="Logo" class="app-logo">
 
   <!-- Menú de navegación -->
-<div class="menu-items">
-  <button mat-button routerLink="/inicio">inicio</button>
-  <button mat-button routerLink="/Celulares">Celulares</button>
-  <button mat-button routerLink="/Computadoras">Computadoras</button>
-  <button mat-button routerLink="/Relojes">Relojes</button>
-  <button mat-button routerLink="/Tablets">Tablets</button>
-  <button mat-button routerLink="/Televisores">Televisores</button>
-</div>
+  <div class="menu-items">
+     <button mat-button routerLink="/inicio">inicio</button>
+     <button mat-button routerLink="/Celulares">Celulares</button>
+     <button mat-button routerLink="/Computadoras">Computadoras</button>
+     <button mat-button routerLink="/Relojes">Relojes</button>
+     <button mat-button routerLink="/Tablets">Tablets</button>
+     <button mat-button routerLink="/Televisores">Televisores</button>
+  </div>
 
   <span class="example-spacer"></span>
 
+  <!-- Botón de modo oscuro -->
+  <label for="toggle" id="label_toggle" class="dark-mode-toggle">
+     <mat-icon>dark_mode</mat-icon>
+  </label>
+  <input type="checkbox" id="toggle" (click)="cambiarFondo()" hidden>
+
   <!-- Botón con ícono de persona para desplegar el menú de registro e inicio -->
   <button 
-    mat-icon-button 
-    class="example-icon" 
-    [matMenuTriggerFor]="usuario" 
-    aria-label="Menú de usuario">
-    <mat-icon>person</mat-icon>
+     mat-icon-button 
+     class="example-icon" 
+     [matMenuTriggerFor]="usuario" 
+     aria-label="Menú de usuario">
+     <mat-icon>person</mat-icon>
   </button>
-  
+ 
   <mat-menu #usuario="matMenu">
-    <button mat-menu-item routerLink="/registro">Registrarse</button>
-    <button mat-menu-item routerLink="/inicio-sesion">Iniciar Sesión</button>
+     <button mat-menu-item routerLink="/registro">Registrarse</button>
+     <button mat-menu-item routerLink="/inicio-sesion">Iniciar Sesión</button>
   </mat-menu>
 
   <!-- Icono de carrito -->
   <button 
-    mat-icon-button 
-    class="example-icon favorite-icon" 
-    aria-label="Carrito de compras">
-    <mat-icon>shopping_cart</mat-icon>
+     mat-icon-button 
+     class="example-icon favorite-icon" 
+     aria-label="Carrito de compras">
+     <mat-icon>shopping_cart</mat-icon>
   </button>
 </mat-toolbar>
+

@@ -1,19 +1,33 @@
 <div class="contenido">
+  <!-- Usamos *ngFor para iterar sobre el array 'info' y generar una tarjeta para cada elemento -->
   <div class="card-container" *ngFor="let i of info">
+    <!-- Definimos una tarjeta personalizada -->
     <div class="custom-card">
-      <!-- Usamos ngStyle para evitar problemas con las comillas -->
+      
+      <!-- Usamos ngStyle para aplicar un estilo dinámico al fondo del encabezado de la tarjeta -->
       <div class="card-header" [ngStyle]="{'background-image': 'url(' + i.imagen + ')'}">
+        <!-- Texto en la cabecera de la tarjeta -->
         <div class="header-text">
+          <!-- Título de la tarjeta, utilizando el valor de 'titulo' del objeto 'i' -->
           <h2 class="card-title">{{i.titulo}}</h2>
+          <!-- Subtítulo de la tarjeta, utilizando el valor de 'marca' del objeto 'i' -->
           <p class="card-subtitle">{{i.marca}}</p>
         </div>
       </div>
+      
+      <!-- Cuerpo de la tarjeta -->
       <div class="card-body">
+        <!-- Imagen del producto. La fuente de la imagen se toma del atributo 'imagen' de 'i' -->
         <img [src]="i.imagen" [alt]="i.alt || 'Imagen del producto'" class="card-image" />
+        <!-- Descripción del producto -->
         <p class="description">{{i.descripcion}}</p>
       </div>
+      
+      <!-- Acciones de la tarjeta, como los botones -->
       <div class="card-actions">
+        <!-- Botón de "Comprar ahora" -->
         <button class="btn buy-btn">Comprar ahora</button>
+        <!-- Botón de "Agregar al carrito", con un evento que llama a la función 'mostrarAlerta' cuando se hace clic -->
         <button class="btn cart-btn" (click)="mostrarAlerta()">Agregar al carrito</button>
       </div>
     </div>

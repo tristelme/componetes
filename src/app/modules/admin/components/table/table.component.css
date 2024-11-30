@@ -1,4 +1,4 @@
-.modal-footer{
-    text-align: center;
-    justify-content: center;
+.modal-footer {                    /* Selecciona el contenedor de pie de página del modal */
+    text-align: center;            /* Centra el texto dentro del contenedor de pie de página */
+    justify-content: center;       /* Centra los elementos hijos de la fila (como botones) dentro del contenedor */
 }

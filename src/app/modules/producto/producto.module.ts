@@ -6,9 +6,9 @@ import { ComputadorasComponent } from './pages/computadoras/computadoras.compone
 import { RelojComponent } from './pages/reloj/reloj.component';
 import { TelevicionesComponent } from './pages/televiciones/televiciones.component';
 import { TablestComponent } from './pages/tablest/tablest.component';
-import { CarruselComponent } from './producs/carrusel/carrusel.component';
-import { CardCelularesComponent } from './producs/card-celulares/card-celulares.component';
-import { CardComputadorasComponent } from './producs/card-computadoras/card-computadoras.component';
+import { CardCelularesComponent } from './components/card-celulares/card-celulares.component';
+import { CarruselComponent } from './components/carrusel/carrusel.component';
+import { CardComputadorasComponent } from './components/card-computadoras/card-computadoras.component';
 @NgModule({
   declarations: [
     CelularesComponent,
@@ -16,9 +16,10 @@ import { CardComputadorasComponent } from './producs/card-computadoras/card-comp
     TablestComponent,
     RelojComponent,
     TelevicionesComponent,
-    CarruselComponent,
     CardCelularesComponent,
-    CardComputadorasComponent
+    CardComputadorasComponent,
+    CarruselComponent
+
   ],
   imports: [
     CommonModule,
@@ -30,10 +31,9 @@ import { CardComputadorasComponent } from './producs/card-computadoras/card-comp
     TablestComponent,
     RelojComponent,
     TelevicionesComponent,
-    CarruselComponent,
+    CardCelularesComponent,
+    CardComputadorasComponent,
   ]
 
 })
-export class ProductoModule {
-  
- }
+export class ProductoModule {}

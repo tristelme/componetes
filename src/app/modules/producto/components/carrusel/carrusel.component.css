@@ -1,0 +1,52 @@
+.carrusel-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto; /* Espaciado superior e inferior para separar del navbar */
+  overflow: hidden;
+  background-color: #f0f0f0;
+  border-radius: 15px; /* Redondear esquinas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Opcional: sombra para más estilo */
+}
+
+.carrusel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carrusel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carrusel-item img {
+  width: 100%;
+  display: block;
+  border-radius: 15px; /* También redondea las imágenes */
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 18px;
+  z-index: 100;
+  transition: background-color 0.3s;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}

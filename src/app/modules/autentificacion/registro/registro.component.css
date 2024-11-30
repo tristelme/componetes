@@ -1,60 +1,62 @@
 /* Contenedor principal */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f7fc;
+    display: flex; /* Establece el contenedor como un contenedor flexible */
+    justify-content: center; /* Centra los elementos hijos horizontalmente */
+    align-items: center; /* Centra los elementos hijos verticalmente */
+    height: 100vh; /* La altura del contenedor es igual a la altura completa de la ventana del navegador */
+    background-color: #f4f7fc; /* Color de fondo suave para el contenedor */
 }
 
 /* Tarjeta de registro */
 .register-card {
-    background-color: white;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
+    background-color: white; /* Fondo blanco para la tarjeta de registro */
+    padding: 40px; /* Espaciado interno (relleno) de 40px alrededor del contenido */
+    border-radius: 8px; /* Bordes redondeados en la tarjeta */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor de la tarjeta para un efecto de profundidad */
+    width: 100%; /* La tarjeta ocupará todo el ancho disponible del contenedor */
+    max-width: 400px; /* La tarjeta tendrá un ancho máximo de 400px */
+    text-align: center; /* Centra el texto dentro de la tarjeta */
 }
 
 /* Título de la sección */
 h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 2em; /* El tamaño de fuente del título es 2 veces el tamaño base */
+    margin-bottom: 20px; /* Espaciado de 20px debajo del título */
+    color: #333; /* Color oscuro para el texto del título */
 }
 
 /* Icono de usuario */
 .icon {
-    color: #6366f1;
-    margin-bottom: 20px;
+    color: #6366f1; /* Color azul para el icono */
+    margin-bottom: 20px; /* Espaciado de 20px debajo del icono */
 }
 
 /* Estilo para los campos de entrada */
 .input-field {
-    width: 100%;
-    margin-bottom: 20px;
+    width: 100%; /* Los campos de entrada ocuparán el 100% del ancho disponible */
+    margin-bottom: 20px; /* Espaciado de 20px debajo de cada campo de entrada */
 }
 
 /* Botón de registro */
 .boton {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
+    width: 100%; /* El botón ocupará el 100% del ancho disponible */
+    padding: 10px; /* Espaciado interno de 10px en el botón */
+    font-size: 16px; /* Tamaño de fuente del texto del botón */
 }
 
 /* Enlace para iniciar sesión */
 .login-link {
-    margin-top: 20px;
-    font-size: 14px;
+    margin-top: 20px; /* Espaciado de 20px en la parte superior del enlace */
+    font-size: 14px; /* Tamaño de fuente más pequeño para el enlace */
 }
 
+/* Estilo para el enlace de iniciar sesión */
 .login-link a {
-    color: #6366f1;
-    text-decoration: none;
+    color: #6366f1; /* Color azul para el enlace */
+    text-decoration: none; /* Elimina el subrayado del enlace */
 }
 
+/* Estilo para el enlace de iniciar sesión cuando pasa el cursor por encima */
 .login-link a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Agrega un subrayado cuando el usuario pasa el cursor sobre el enlace */
 }

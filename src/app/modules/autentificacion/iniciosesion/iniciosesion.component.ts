@@ -1,59 +1,26 @@
-import { Component } from '@angular/core';
-import { Usuario } from 'src/app/models/usuario';
-import { FirestoreService } from '../../shared/service/firestore.service';
-import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
-import * as CryptoJS from 'crypto-js';
+import { Component } from '@angular/core'; // Importa el decorador "Component" de Angular
+import { Usuario } from 'src/app/models/usuario'; // Importa la interfaz "Usuario" que define la estructura de los datos del usuario
+import { FirestoreService } from '../../shared/service/firestore.service'; // Importa el servicio Firestore para interactuar con la base de datos
+import { Router } from '@angular/router'; // Importa el servicio Router para navegar entre rutas de la aplicación
+import { AuthService } from '../services/auth.service'; // Importa el servicio de autenticación
+import * as CryptoJS from 'crypto-js'; // Importa la librería CryptoJS para encriptar la contraseña
 
 @Component({
-  selector: 'app-iniciosesion',
-  templateUrl: './iniciosesion.component.html',
-  styleUrls: ['./iniciosesion.component.css']
+  selector: 'app-iniciosesion', // Define el selector del componente
+  templateUrl: './iniciosesion.component.html', // Asocia el archivo de plantilla HTML al componente
+  styleUrls: ['./iniciosesion.component.css'] // Asocia el archivo de estilos CSS al componente
 })
 export class IniciosesionComponent {
-  hide = true;
-  // ############################# LOCAL
-  // Definimos colección local de usuarios
-  /*
-  public coleccionUsuariosLocales: Usuario[];
-  constructor(){
-    this.coleccionUsuariosLocales = [
-      {
-        uid: '',
-        nombre: 'Santiago',
-        apellido: 'Nuñez',
-        email: 'santinuñez@gmail.com',
-        rol: 'admin',
-        password: '123456'
-      },
-      {
-        uid: '',
-        nombre: 'Juan',
-        apellido: 'Perez',
-        email: 'juanperez@gmail.com',
-        rol: 'vis',
-        password: 'abc123'
-      },
-      {
-        uid: '',
-        nombre: 'Thalia',
-        apellido: 'Rosales',
-        email: 'thaliarosales@gmail.com',
-        rol: 'vis',
-        password: 'abcdef'
-      }
-    ]
-  }*/
-  // ############################# FIN LOCAL
+  hide = true; // Variable booleana que controla la visibilidad de la contraseña en el campo de entrada
 
+  // Constructor donde se inyectan los servicios necesarios
   constructor(
-    public servicioAuth: AuthService,
-    public servicioFirestore: FirestoreService,
-    public servicioRutas: Router
+    public servicioAuth: AuthService, // Servicio de autenticación
+    public servicioFirestore: FirestoreService, // Servicio de Firestore
+    public servicioRutas: Router // Servicio de rutas para navegar entre vistas
   ) { }
 
-  // ############################# INGRESADO
-  // Definimos la interfaz de usuario
+  // Objeto que contiene los datos del usuario que se van a capturar en el formulario
   usuarios: Usuario = {
     uid: '',
     nombre: '',
@@ -63,98 +30,62 @@ export class IniciosesionComponent {
     password: ''
   }
 
-  // Función para iniciar sesión
+  // Función asincrónica para iniciar sesión
   async iniciarSesion() {
-    // Recibe la información ingresada desde el navegador
-    /*
-    const credenciales = {
-      uid: this.usuarios.uid,
-      nombre: this.usuarios.nombre,
-      apellido: this.usuarios.apellido,
-      email: this.usuarios.email,
-      rol: this.usuarios.rol,
-      password: this.usuarios.password
-    
-    // Repetitiva para recorrer la colección de usuarios locales
-    for(let i = 0; i < this.coleccionUsuariosLocales.length; i++){
-      // usuarioLocal corresponde a esa posición en específico
-      const usuarioLocal = this.coleccionUsuariosLocales[i];
-      // Condicional para verificar la existencia del usuario ingresado
-      if(usuarioLocal.nombre === credenciales.nombre && 
-        usuarioLocal.apellido === credenciales.apellido && 
-        usuarioLocal.email === credenciales.email && 
-        usuarioLocal.rol === credenciales.rol && 
-        usuarioLocal.password === credenciales.password){
-          // Notificamos al usuario que pudo ingresar
-          alert("¡Ingresaste con éxito! :)");
-          // Paramos a la función
-          break;
-        } else {
-          alert("Ocurrió un problema al iniciar sesión :(");
-          break;
-        }
-    }*/
 
+    // Objeto con las credenciales del usuario (email y contraseña)
     const credenciales = {
       email: this.usuarios.email,
       password: this.usuarios.password
     }
 
     try {
-      // obtenemos usuario de la BD
-      // obtenemos usuario de la Base de Datos
+      // Intentamos obtener el usuario de la base de datos usando el servicio de autenticación
       const usuarioBD = await this.servicioAuth.obtenerUsuario(credenciales.email);
 
-      // Condicional verificada que ese usuario de la BD existiera o que sea igual al de nuestra colección
+      // Si el usuario no existe o la base de datos no devuelve resultados
       if (!usuarioBD || usuarioBD.empty) {
-        alert("Correo electrónico no registrado");
-        this.limpiarInputs();
-        return;
+        alert("Correo electrónico no registrado"); // Muestra alerta si el usuario no existe
+        this.limpiarInputs(); // Limpia los campos de entrada
+        return; // Sale de la función
       }
 
-      // Vinculaba al primer documento de la colección "usuarios" que se obtenía desde la BD
+      // Obtiene el primer documento de la colección de usuarios (suponiendo que solo hay uno con ese email)
       const usuarioDoc = usuarioBD.docs[0];
 
-      /*
-        Extrae los datos del documento en forma de "objeto" y se específica que va a ser del 
-        tipo "Usuario" (se refiere a la interfaz Usuario de nuestros modelos)
-      */
+      // Extrae los datos del usuario desde el documento y los asigna a la interfaz Usuario
       const usuarioData = usuarioDoc.data() as Usuario;
 
-      // Encripta la contraseña que el usuario envía mediante "Iniciar Sesión"
+      // Encripta la contraseña introducida por el usuario
       const hashedPassword = CryptoJS.SHA256(credenciales.password).toString();
 
-      /*
-        Condicional que compara la contraseña que acabamos de encriptar y que el usurio 
-        envío con la que recibimos del "usuarioData"
-      */
+      // Compara la contraseña encriptada con la que está almacenada en la base de datos
       if (hashedPassword !== usuarioData.password) {
-        alert("Contraseña incorrecta");
-
-        this.usuarios.password = '';
-        return;
+        alert("Contraseña incorrecta"); // Muestra alerta si las contraseñas no coinciden
+        this.usuarios.password = ''; // Limpia el campo de la contraseña
+        return; // Sale de la función
       }
 
+      // Si las credenciales son correctas, se inicia la sesión con el servicio Auth
       const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.password)
         .then(res => {
-          alert('¡Se pudo ingresar con éxito :)!');
-
-          this.servicioRutas.navigate(['/inicio']);
+          alert('¡Se pudo ingresar con éxito :)!'); // Alerta de éxito al iniciar sesión
+          this.servicioRutas.navigate(['/inicio']); // Navega a la página de inicio
         })
         .catch(err => {
-          alert('Hubo un problema al iniciar sesión :( ' + err);
-
-          this.limpiarInputs();
+          alert('Hubo un problema al iniciar sesión :( ' + err); // Muestra un error si falla el inicio de sesión
+          this.limpiarInputs(); // Limpia los campos de entrada
         })
     } catch(error){
-      this.limpiarInputs();
+      this.limpiarInputs(); // Si ocurre un error en el bloque try, limpia los campos de entrada
     }
   }
 
+  // Función para limpiar los campos de entrada (email y password)
   limpiarInputs() {
     const inputs = {
-      email: this.usuarios.email = '',
-      password: this.usuarios.password = ''
+      email: this.usuarios.email = '', // Limpia el campo de email
+      password: this.usuarios.password = '' // Limpia el campo de la contraseña
     }
   }
 }
