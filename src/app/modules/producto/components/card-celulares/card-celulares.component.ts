@@ -14,7 +14,7 @@ export class CardCelularesComponent {
   coleccionProductos: Producto[] = [];  // Inicializa un array vacío para almacenar todos los productos
 
   // Colección de productos de una sola categoría (celulares en este caso)
-  coleccionAlimentacion: Producto[] = [];  // Inicializa un array vacío para almacenar productos de la categoría "Celulares"
+  coleccionCelulares: Producto[] = [];  // Inicializa un array vacío para almacenar productos de la categoría "Celulares"
 
   // Variable para seleccionar productos específicos
   productoSeleccionado!: Producto;  // Variable para almacenar el producto seleccionado, tipo Producto
@@ -44,7 +44,7 @@ export class CardCelularesComponent {
     this.coleccionProductos.forEach(producto => {
       // Si el producto es de la categoría "Celulares", lo agregamos a la colección coleccionAlimentacion
       if (producto.categoria === "Celulares") {
-        this.coleccionAlimentacion.push(producto);
+        this.coleccionCelulares.push(producto);
       }
     });
   }

@@ -48,7 +48,32 @@ body {
   body:not(.dark) #label_toggle i {
     color: #333; /* Gris oscuro para íconos en modo claro */
   }
-  
+  /* styles.css (o styles.scss) */
+
+/* Estilos para pantallas grandes por defecto */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Media query para pantallas pequeñas (móviles) */
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+/* Media query para pantallas medianas (tabletas) */
+@media screen and (max-width: 1024px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html, body { height: 100%; }
