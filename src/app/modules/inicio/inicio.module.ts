@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';  // Importa CommonModule, necesa
 import { InicioRoutingModule } from './inicio-routing.module';  // Importa el módulo de rutas específicas para este módulo (inicio-routing.module)
 
 import { InicioComponent } from './pages/inicio/inicio.component';  // Importa el componente de la página de inicio
-import { CardComponent } from '../card/card.component';  // Importa el componente de tarjetas de productos
-import { CarruselComponent } from './pages/carrusel/carrusel.component';  // Importa el componente de carrusel de imágenes
+import { CardComponent } from './components/card/card.component';  // Importa el componente de tarjetas de productos
+import { CarruselComponent } from './components/carrusel/carrusel.component';  // Importa el componente de carrusel de imágenes
 
 // Importación de componentes de Angular Material
 import { MatButtonModule } from '@angular/material/button';  // Módulo de botones de Material Design

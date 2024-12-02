@@ -39,7 +39,7 @@ export class CardComputadorasComponent {
    // Iteramos colección de productos con un 'forEach'
    this.coleccionProductos.forEach(producto => {
      // Si es de tipo "alimentación" -> condicional
-     if(producto.categoria === "Computadoras"){
+     if(producto.categoria === "computadoras"){
        // Lo sube/ guarda en la colección de productos de tipo "alimentación"
        this.coleccionAlimentacion.push(producto);
      }

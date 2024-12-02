@@ -43,7 +43,7 @@ export class CardCelularesComponent {
     // Iteramos sobre cada producto de la colección de productos
     this.coleccionProductos.forEach(producto => {
       // Si el producto es de la categoría "Celulares", lo agregamos a la colección coleccionAlimentacion
-      if (producto.categoria === "Celulares") {
+      if (producto.categoria === "celulares") {
         this.coleccionCelulares.push(producto);
       }
     });
