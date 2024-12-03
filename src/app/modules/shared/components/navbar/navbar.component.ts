@@ -66,4 +66,9 @@ export class NavbarComponent {
       confirmButtonText: 'Aceptar'  // Texto del botón de confirmación
     });
   }
+
+  // Función para alternar la visibilidad del menú móvil
+  toggleMobileMenu() {
+    this.menuVisible = !this.menuVisible;
+  }
 }

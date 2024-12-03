@@ -3,7 +3,7 @@
    <a routerLink="/inicio" class="logo-link">
      <img src="../../../../../assets/apple.png" alt="Logo" class="app-logo">
    </a>
- 
+
    <!-- Menú de navegación (visible en escritorio) -->
    <div class="menu-items">
      <button mat-button routerLink="/inicio">Inicio</button>
@@ -13,20 +13,20 @@
      <button mat-button routerLink="/Tablets">Tablets</button>
      <button mat-button routerLink="/Televisores">Televisores</button>
    </div>
- 
+
    <span class="example-spacer"></span>
- 
+
    <!-- Botón de modo oscuro -->
    <label for="toggle" id="label_toggle" class="dark-mode-toggle">
      <mat-icon>dark_mode</mat-icon>
    </label>
    <input type="checkbox" id="toggle" (click)="cambiarFondo()" hidden>
- 
+
    <!-- Botón de menú hamburguesa (solo visible en móvil) -->
-   <button mat-icon-button class="hamburger" (click)="toggleMenu()" aria-label="Abrir menú">
+   <button mat-icon-button class="hamburger" (click)="toggleMobileMenu()" aria-label="Abrir menú">
      <mat-icon>menu</mat-icon>
    </button>
- 
+
    <!-- Menú desplegable (solo visible en móvil) -->
    <div *ngIf="menuVisible" class="mobile-menu">
      <button mat-button routerLink="/inicio">Inicio</button>
@@ -36,7 +36,7 @@
      <button mat-button routerLink="/Tablets">Tablets</button>
      <button mat-button routerLink="/Televisores">Televisores</button>
    </div>
- 
+
    <!-- Menú de usuario -->
    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="usuario" aria-label="Menú de usuario">
      <mat-icon>person</mat-icon>
@@ -45,10 +45,9 @@
      <button mat-menu-item routerLink="/registro">Registrarse</button>
      <button mat-menu-item routerLink="/inicio-sesion">Iniciar Sesión</button>
    </mat-menu>
- 
+
    <!-- Icono de carrito -->
    <button mat-icon-button class="example-icon favorite-icon" (click)="mostrarAlertaCarrito()" aria-label="Carrito de compras">
      <mat-icon>shopping_cart</mat-icon>
    </button>
- </mat-toolbar>
- 
+</mat-toolbar>
