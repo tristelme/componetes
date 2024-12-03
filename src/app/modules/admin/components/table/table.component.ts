@@ -1,7 +1,7 @@
 // Importaciones necesarias para el componente
 import { Component, OnInit } from '@angular/core'; // Importa los decoradores Component y OnInit
 import { Producto } from 'src/app/models/producto'; // Importa el modelo Producto
-import { FormControl } from '@angular/forms'; // Importa FormControl para la validación de los formularios
+import { FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms'; // Importa FormGroup para agrupar controles en el formulario
 import { Validators } from '@angular/forms'; // Importa Validators para agregar validaciones al formulario
 import { CrudService } from '../../services/crud.service'; // Importa el servicio CrudService para operaciones CRUD
@@ -71,15 +71,19 @@ export class TableComponent {
 
   // Función para mostrar el modal de eliminación de un producto
   mostrarBorrar(productoSeleccionado: Producto) {
+    console.log('Producto seleccionado para eliminar: ', productoSeleccionado); // Verifica que el producto esté correcto
     this.modalVisibleProducto = true; // Muestra el modal
     this.productoSeleccionado = productoSeleccionado; // Asigna el producto a eliminar
   }
 
   // Función para eliminar el producto
   borrarProducto() {
+    console.log('Eliminando producto con ID: ', this.productoSeleccionado.idProducto); // Verifica el ID del producto
     this.servicioCrud.eliminarProducto(this.productoSeleccionado.idProducto) // Llama al servicio para eliminar el producto
       .then(respuesta => {
         alert("Se ha podido eliminar con éxito."); // Muestra un mensaje de éxito
+        // Elimina el producto de la lista local para reflejar el cambio
+        this.coleccionProductos = this.coleccionProductos.filter(producto => producto.idProducto !== this.productoSeleccionado.idProducto);
       })
       .catch(error => {
         alert("Ha ocurrido un error al eliminar un producto: \n" + error); // Muestra un mensaje de error
