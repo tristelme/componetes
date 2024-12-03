@@ -7,6 +7,9 @@
   background-color: #f0f0f0;
   border-radius: 15px; /* Redondear esquinas */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Opcional: sombra para más estilo */
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
 }
 
 .carrusel {
@@ -50,3 +53,4 @@
 .next-btn {
   right: 10px;
 }
+  

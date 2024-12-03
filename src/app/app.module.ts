@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,9 +10,15 @@ import { environment } from 'src/environments/environment'; // vincula a la BD c
 import { AngularFireModule } from '@angular/fire/compat'; // trabaja con las colecciones de información
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'; // trabaja con la autentificación
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { ContactoComponent } from './modules/contacto/contacto.component';
+import { AcercaDeComponent } from './modules/acerca-de/acerca-de.component';
+import { ServiciosComponent } from './modules/servicios/servicios.component';
 @NgModule({
   declarations: [
     AppComponent,
+    ContactoComponent,
+    AcercaDeComponent,
+    ServiciosComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +30,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
      AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializar Firebase dentro del proyecto
      AngularFireAuthModule,
      AngularFireStorageModule,
+     FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

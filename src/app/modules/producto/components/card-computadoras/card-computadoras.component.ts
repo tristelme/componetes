@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { CrudService } from 'src/app/modules/admin/services/crud.service';
+import Swal from 'sweetalert2';  // Importar SweetAlert2
+
 @Component({
   selector: 'app-card-computadoras',
   templateUrl: './card-computadoras.component.html',
@@ -45,6 +47,14 @@ export class CardComputadorasComponent {
      }
    })
  }
+ mostrarAlerta() {
+  Swal.fire({
+    icon: 'info',  // Icono de información
+    title: 'Carrito en mantenimiento',  // Título de la alerta
+    text: 'El carrito de compras está en mantenimiento, por favor intenta más tarde.😅',  // Texto de la alerta
+    confirmButtonText: 'Cerrar'  // Botón para cerrar la alerta
+  });
+}
 
  mostrarVer(info: Producto){
    this.modalVisible = true;

@@ -1,11 +1,24 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule,} from '@angular/router';
 import { InicioComponent } from './modules/inicio/pages/inicio/inicio.component';
+import { Routes } from '@angular/router';
+import { ContactoComponent } from './modules/contacto/contacto.component';
+import { AcercaDeComponent } from './modules/acerca-de/acerca-de.component';
+import { ServiciosComponent } from './modules/servicios/servicios.component';
 
 const routes: Routes = [
   // RUTA INICIAL / PRINCIPAL AL COMPONENTE
   {
     path:"",component: InicioComponent
+  },
+  { 
+    path: "contacto", component: ContactoComponent 
+  },
+  { 
+    path: "acerca-de", component: AcercaDeComponent
+  },
+  { 
+    path: 'servicios', component: ServiciosComponent
   },
   // CARGA PEREZOSA -> RUTA AL MÓDULO INICIO
   // loadChildren: Indica que será ruta hija del módulo raíz
@@ -22,7 +35,8 @@ const routes: Routes = [
   },
   {
     path:"",loadChildren:()=>import('./modules/admin/admin.module').then(m=>m.AdminModule)
-  }
+  },
+
 ];
 
 @NgModule({

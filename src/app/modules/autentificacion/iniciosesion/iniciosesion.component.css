@@ -1,15 +1,21 @@
+/* Aseguramos que el fondo del body sea del mismo color que la ventana */
+body, html {
+    height: 100%; /* Aseguramos que el body y el html ocupen toda la ventana */
+    margin: 0; /* Elimina los márgenes por defecto */
+    background-color: #f4f7fc; /* Color de fondo para todo el body, gris azulado */
+}
+
 /* Contenedor principal */
 .container {
     display: flex; /* Usamos Flexbox para la distribución */
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center; /* Centra el contenido verticalmente */
     height: 100vh; /* Establece la altura al 100% de la altura de la ventana */
-    background-color: #f4f7fc; /* Color de fondo suave, tipo gris azulado */
 }
 
-/* Tarjeta de inicio de sesión */
+/* Tarjeta de inicio de sesión sin fondo blanco */
 .login-card {
-    background-color: white; /* Fondo blanco para la tarjeta de login */
+    background-color: transparent; /* Fondo transparente para la tarjeta */
     padding: 40px; /* Espaciado interno de 40px alrededor del contenido */
     border-radius: 8px; /* Bordes redondeados de 8px */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor de la tarjeta */

@@ -72,6 +72,22 @@ button[mat-icon-button]:hover {
 
 /* Responsivo para pantallas pequeñas */
 @media (max-width: 700px) {
+    .menu-items {
+        display: none; /* Oculta el menú en dispositivos pequeños */
+    }
+
+    .mobile-menu {
+        display: flex;
+        flex-direction: column; /* Cambia a lista vertical */
+        gap: 10px;
+        background-color: #6366f1; /* Fondo del menú móvil */
+        padding: 10px;
+    }
+
+    .hamburger {
+        display: block; /* Muestra el botón de menú hamburguesa */
+    }
+
     .nav-menu {
         flex-direction: column; /* Cambia a lista vertical */
         gap: 10px;
@@ -81,4 +97,19 @@ button[mat-icon-button]:hover {
         padding: 8px;
         font-size: 16px;
     }
+}
+
+/* Añadir un estilo cuando el menú esté visible */
+.mobile-menu {
+    display: none;
+}
+
+/* Estilo para el menú desplegable cuando es activado */
+.mobile-menu button {
+    background-color: transparent;
+    color: white;
+    text-align: left;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
 }

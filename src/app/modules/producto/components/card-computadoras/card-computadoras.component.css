@@ -1,0 +1,88 @@
+/* Estilo para el contenedor del modal */
+.modal-content {
+    border-radius: 15px;  /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  /* Sombra suave para el modal */
+    overflow: hidden;  /* Asegura que el contenido no se desborde */
+    max-width: 600px;  /* Limita el ancho máximo del modal */
+    margin: auto;  /* Centra el modal horizontalmente */
+  }
+  
+  /* Cabecera del modal */
+  .modal-header {
+    background-color: #f8f9fa;  /* Fondo claro */
+    border-bottom: 1px solid #dee2e6;  /* Línea divisoria */
+    padding: 15px;
+  }
+  
+  /* Título del modal */
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #343a40;  /* Color oscuro */
+  }
+  
+  /* Cuerpo del modal */
+  .modal-body {
+    padding: 20px;
+    max-height: 400px;  /* Limita la altura máxima del cuerpo */
+    overflow-y: auto;  /* Permite desplazarse si el contenido es demasiado grande */
+    text-align: center;
+  }
+  
+  /* Imagen del producto en el modal */
+  .modal-body img {
+    width: 100%;
+    max-height: 300px;  /* Limita la altura de la imagen */
+    object-fit: cover;  /* Asegura que la imagen se ajuste sin deformarse */
+    border-radius: 10px;
+  }
+  
+  /* Descripción del producto */
+  .modal-body .mb-3 {
+    font-size: 1rem;
+    color: #6c757d;  /* Color gris para la descripción */
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  /* Precio del producto */
+  .modal-body .mb-3 p {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #28a745;  /* Color verde para indicar el precio */
+  }
+  
+  /* Botones del modal */
+  .modal-footer {
+    display: flex;
+    justify-content: space-between;  /* Espacio entre los botones */
+    padding: 15px;
+  }
+  
+  .modal-footer button {
+    width: 45%;  /* Los botones ocupan la mitad del modal */
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;  /* Bordes redondeados */
+    transition: background-color 0.3s;  /* Transición para el hover */
+  }
+  
+  .modal-footer .btn-outline-primary {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .modal-footer .btn-outline-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .modal-footer .btn-outline-secondary {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .modal-footer .btn-outline-secondary:hover {
+    background-color: #5a6268;
+  }
+  

@@ -25,8 +25,8 @@
       
       <!-- Acciones de la tarjeta, como los botones -->
       <div class="card-actions">
-        <!-- Botón de "Comprar ahora" -->
-        <button class="btn buy-btn">Comprar ahora</button>
+        <!-- Botón de "Comprar ahora", con un evento que llama a la función 'comprarAhora' -->
+        <button class="btn buy-btn" (click)="comprarAhora()">Comprar ahora</button>
         <!-- Botón de "Agregar al carrito", con un evento que llama a la función 'mostrarAlerta' cuando se hace clic -->
         <button class="btn cart-btn" (click)="mostrarAlerta()">Agregar al carrito</button>
       </div>

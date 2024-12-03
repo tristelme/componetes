@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';  // Importa el decorador Component para definir el componente Angular
 import { Producto } from 'src/app/models/producto';  // Importa la clase Producto que define la estructura de los productos
 import { CrudService } from 'src/app/modules/admin/services/crud.service';  // Importa el servicio CrudService para interactuar con la base de datos
+import Swal from 'sweetalert2';  // Importa SweetAlert2
 
 // Declaración del componente Angular
 @Component({
@@ -57,4 +58,16 @@ export class CardCelularesComponent {
     // Asigna el producto seleccionado a la variable productoSeleccionado
     this.productoSeleccionado = info;
   }
+
+  // Función que muestra una alerta cuando el usuario intenta agregar al carrito
+ // Función para mostrar la alerta de carrito en mantenimiento
+mostrarAlerta() {
+  Swal.fire({
+    icon: 'info',  // Icono de información
+    title: 'Carrito en mantenimiento',  // Título de la alerta
+    text: 'El carrito de compras está en mantenimiento, por favor intenta más tarde.😅',  // Texto de la alerta
+    confirmButtonText: 'Cerrar'  // Botón para cerrar la alerta
+  });
+}
+
 }
